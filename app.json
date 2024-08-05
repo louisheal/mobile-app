@@ -13,7 +13,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.louisheal.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -32,6 +33,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "4eda1930-8873-4adb-9249-ce7216255c99"
+      }
     }
   }
 }

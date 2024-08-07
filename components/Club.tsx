@@ -1,19 +1,13 @@
 import { StyleSheet, Text, View } from "react-native"
 import ClubProps from "@/types/clubProps";
 
-const Club = ({ item }: { item: ClubProps }) => {
-  return (
-    <View style={styles.clubContainer}>
-      <Text style={styles.club} >{item.name}</Text>
-    </View>
-  );
+const Club = ({ club }: { club: ClubProps }) => {
+  return <Text style={styles.club} >{club.name}</Text>;
 }
 
-// TODO: Add style to clubContainer
 const styles = StyleSheet.create({
-  clubContainer: {},
   club: {
-    padding: 12,
+    padding: 24,
     margin: 12,
     fontSize: 18,
     backgroundColor: "white",

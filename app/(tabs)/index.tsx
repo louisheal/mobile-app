@@ -1,11 +1,11 @@
-import { SafeAreaView, StyleSheet, Platform, StatusBar } from "react-native";
+import { View, StyleSheet } from "react-native";
 import ClubList from "@/components/ClubList";
 
 const Index = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ClubList />
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight + 12 : 0,
     width: "100%",
   },
 });

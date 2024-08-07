@@ -1,5 +1,5 @@
-import fetchClubs from "@/api/fetchClubs";
 import { useEffect, useState } from "react";
+import fetchClubs from "@/api/fetchClubs";
 import ClubProps from "@/types/clubProps";
 
 const useFetchClubs = () => {

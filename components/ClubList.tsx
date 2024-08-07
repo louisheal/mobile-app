@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import Club from "@/components/Club";
 import useFetchClubs from "@/hooks/useFetchClubs";
 
@@ -6,12 +6,11 @@ const ClubList = () => {
 
   const [clubs] = useFetchClubs();
 
-  // TODO: Should be contained inside a view
   return (
     <FlatList
       data={clubs}
-      renderItem={({ item }) => <Club item={item} />}
-      keyExtractor={(item) => item.id}
+      renderItem={({item}) => <Club club={item} />}
+      keyExtractor={(club) => club.id}
       style={styles.clubList}
     />
   );
@@ -19,7 +18,8 @@ const ClubList = () => {
 
 const styles = StyleSheet.create({
   clubList: {
-    width: "100%",
+    width: "90%",
+    paddingTop: 12,
   },
 });
 

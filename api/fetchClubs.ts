@@ -2,7 +2,7 @@ import axios from "axios";
 import ClubProps from "@/types/clubProps";
 
 const api = axios.create({
-  baseURL: process.env.BACKEND_API_URL
+  baseURL: process.env.EXPO_PUBLIC_API_URL
 });
 
 const fetchClubs = async () => {

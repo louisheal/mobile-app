@@ -7,8 +7,12 @@ const useFetchClubs = () => {
 
   useEffect(() => {
     const loadClubs = async () => {
-      const data = await fetchClubs();
-      setClubs(data);
+      try {
+        const data = await fetchClubs();
+        setClubs(data);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     loadClubs();

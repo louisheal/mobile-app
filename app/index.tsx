@@ -1,15 +1,22 @@
-import { Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Platform, StatusBar } from "react-native";
+import ClubList from "@/components/ClubList";
 
-export default function Index() {
+const Index = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ClubList />
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight + 12 : 0,
+    width: "100%",
+  },
+});
+
+export default Index;

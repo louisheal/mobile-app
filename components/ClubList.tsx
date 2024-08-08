@@ -19,7 +19,6 @@ const ClubList = () => {
 const styles = StyleSheet.create({
   clubList: {
     width: "90%",
-    paddingTop: 12,
   },
 });
 

@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import Club from "@/components/Club";
 import useFetchClubs from "@/hooks/useFetchClubs";
 
@@ -19,7 +19,6 @@ const ClubList = () => {
 const styles = StyleSheet.create({
   clubList: {
     width: "90%",
-    paddingTop: 12,
   },
 });
 

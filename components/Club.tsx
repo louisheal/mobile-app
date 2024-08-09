@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Modal, View } from "react-native"
+import { StyleSheet, Text, Modal, View, Pressable } from "react-native"
 import { useState } from "react";
 import ClubProps from "@/types/clubProps";
 import Rating from "@/components/Rating";
@@ -25,12 +25,12 @@ const Club = ({ club }: { club: ClubProps }) => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text>This is a popup for {club.name}</Text>
-            <Rating onSubmit={onSubmit}/>
+            <Text style={styles.text}>This is a popup for {club.name}</Text>
+            <Rating onSubmit={onSubmit} close={() => setModalVisible(false)} />
           </View>
         </View>
       </Modal>
-      <Text style={styles.club} onPress={() => setModalVisible(true)} >{club.name}: {rating}</Text>
+      <Text style={styles.club} onPress={() => setModalVisible(true)}>{club.name}: {rating}</Text>
     </>
   );
 }
@@ -40,9 +40,11 @@ const styles = StyleSheet.create({
     padding: 24,
     margin: 12,
     fontSize: 18,
-    backgroundColor: "white",
     borderRadius: 12,
     textAlign: "center",
+    borderColor: "white",
+    borderWidth: 1,
+    color: "white",
   },
   centeredView: {
     flex: 1,
@@ -50,8 +52,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalView: {
-    padding: 64,
-    backgroundColor: 'white',
+    backgroundColor: "black",
+    borderColor: "white",
+    borderWidth: 1,
+    padding: 32,
     borderRadius: 20,
     alignItems: 'center',
     shadowColor: '#000',
@@ -62,7 +66,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-  }
+  },
+  text: {
+    color: "white",
+  },
 });
 
 export default Club;

@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import Club from "@/components/Club";
 import useFetchClubs from "@/hooks/useFetchClubs";
 

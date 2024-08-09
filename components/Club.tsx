@@ -7,7 +7,7 @@ import { putRating } from "@/api/api";
 const Club = ({ club }: { club: ClubProps }) => {
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(club.rating);
 
   const onSubmit = (value: number) => {
     setRating(value)

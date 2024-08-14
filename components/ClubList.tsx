@@ -11,15 +11,10 @@ const ClubList = () => {
       data={clubs}
       renderItem={({item}) => <Club club={item} />}
       keyExtractor={(club) => club.id}
-      style={styles.clubList}
+      style={{width: "100%"}}
+      showsVerticalScrollIndicator={false}
     />
   );
 }
-
-const styles = StyleSheet.create({
-  clubList: {
-    width: "90%",
-  },
-});
 
 export default ClubList;

@@ -1,7 +1,7 @@
 interface ClubProps {
   id: string,
   name: string,
-  rating: number,
+  img: string,
 }
 
 export default ClubProps;

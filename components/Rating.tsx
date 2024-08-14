@@ -60,9 +60,6 @@ const styles = StyleSheet.create({
   white: {
     color: "white",
   },
-  grey: {
-    color: "grey",
-  },
   black: {
     color: "black",
   },

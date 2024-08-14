@@ -1,6 +1,8 @@
 import { Text, Image, Dimensions, StyleSheet } from "react-native"
 import ClubProps from "@/types/clubProps";
 
+const imageWidth = Dimensions.get("window").width
+
 const Club = ({ club }: { club: ClubProps }) => {
   return (
     <>
@@ -9,8 +11,6 @@ const Club = ({ club }: { club: ClubProps }) => {
     </>
   );
 }
-
-const imageWidth = Dimensions.get("window").width
 
 const styles = StyleSheet.create({
   image: {

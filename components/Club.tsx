@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Modal, View, Pressable } from "react-native"
+import { StyleSheet, Text, Modal, View, Pressable, Image, Dimensions } from "react-native"
 import { useState } from "react";
 import ClubProps from "@/types/clubProps";
 import Rating from "@/components/Rating";
@@ -15,6 +15,8 @@ const Club = ({ club }: { club: ClubProps }) => {
     putRating({"clubId": club.id, "userId": "", value: value})
   }
 
+  const imageWidth = Dimensions.get("window").width
+
   return (
     <>
       <Modal
@@ -30,12 +32,33 @@ const Club = ({ club }: { club: ClubProps }) => {
           </View>
         </View>
       </Modal>
-      <Text style={styles.club} onPress={() => setModalVisible(true)}>{club.name}: {rating}</Text>
+      <View style={{flexDirection: "row", alignItems: "center", justifyContent: "space-between", margin: 12}}>
+        <View style={{flex: 1, display: "flex", justifyContent: "flex-start", alignItems: "flex-start"}}>
+          <Text style={{color: "white", fontSize: 20}}>{club.name}</Text>
+        </View>
+        <View style={{flex: 1, display: "flex", justifyContent: "center", alignItems: "center"}}>
+          <Text style={{color: "white", fontSize: 20}}>{rating}</Text>
+        </View>
+        <View style={{flex: 1, display: "flex", justifyContent: "flex-end", alignItems: "flex-end"}}>
+          <Pressable style={styles.button} onPress={() => setModalVisible(true)}>
+            <Text style={{color: "black", fontSize: 20}}>Rate</Text>
+          </Pressable>
+        </View>
+      </View>
+      <View style={{width: "100%", height: 0, paddingBottom: "100%", backgroundColor: "white"}}>
+        {club.img && <Image style={{width: imageWidth, height: imageWidth, objectFit: "cover"}} source={{uri: club.img}} />}
+      </View>
     </>
   );
 }
 
 const styles = StyleSheet.create({
+  button: {
+    backgroundColor: "white",
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
   club: {
     padding: 24,
     margin: 12,

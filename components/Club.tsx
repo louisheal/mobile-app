@@ -1,4 +1,4 @@
-import { Text, Image, Dimensions, StyleSheet } from "react-native"
+import { Text, Image, Dimensions, StyleSheet, View } from "react-native"
 import ClubProps from "@/types/clubProps";
 
 const imageWidth = Dimensions.get("window").width

@@ -2,10 +2,19 @@ import { TicketProvider } from '@/contexts/TicketContext';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from "expo-router";
 
+const Options = {
+  tabBarActiveTintColor: "white",
+  tabBarInactiveTintColor: "white",
+  tabBarStyle: {
+    backgroundColor: "black",
+  },
+  tabBarShowLabel: false,
+}
+
 const TabLayout = () => {
   return (
     <TicketProvider>
-      <Tabs>
+      <Tabs screenOptions={Options}>
         <Tabs.Screen
           name="index"
           options={{
@@ -18,12 +27,6 @@ const TabLayout = () => {
               fontWeight: 900,
             },
             headerTintColor: "white",
-            tabBarActiveTintColor: "white",
-            tabBarInactiveTintColor: "white",
-            tabBarStyle: {
-              backgroundColor: "black",
-            },
-            tabBarShowLabel: false,
           }}
         />
         <Tabs.Screen
@@ -38,12 +41,6 @@ const TabLayout = () => {
               fontWeight: 900,
             },
             headerTintColor: "white",
-            tabBarActiveTintColor: "white",
-            tabBarInactiveTintColor: "white",
-            tabBarStyle: {
-              backgroundColor: "black",
-            },
-            tabBarShowLabel: false,
           }}
         />
       </Tabs>

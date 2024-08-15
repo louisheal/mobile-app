@@ -20,7 +20,6 @@ const Scanner = () => {
       setShowingAlert(true);
       const code = codes[0].value!;
       const used = await useTicket(code);
-      console.log(used);
       Alert.alert('Scanned Code', used, [{text: 'Close', style: "cancel", onPress: () => setShowingAlert(false)}]);
     }
   });

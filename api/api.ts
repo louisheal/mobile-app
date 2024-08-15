@@ -7,19 +7,22 @@ const api = axios.create({
   baseURL: process.env.EXPO_PUBLIC_API_URL
 });
 
-const fetchClubs = async () => {
+export const fetchClubs = async () => {
   const { data: clubs } = await api.get<ClubProps[]>('/clubs');
   return clubs;
 }
 
-const fetchTickets = async () => {
+export const fetchTickets = async () => {
   const { data: tickets } = await api.get<TicketProps[]>('/tickets');
   return tickets;
 }
 
-const createTicket = async (newTicket : NewTicketProps) => {
+export const createTicket = async (newTicket: NewTicketProps) => {
   const { data: id } = await api.post('/ticket', newTicket);
   return id;
 }
 
-export {fetchClubs, fetchTickets, createTicket};
+export const useTicket = async (ticketId: string) => {
+  const { data: used } = await api.put(`/ticket?ticketId=${ticketId}`);
+  return used;
+}

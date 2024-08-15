@@ -1,6 +1,7 @@
 import axios from "axios";
 import ClubProps from "@/types/clubProps";
-import RatingProps from "@/types/ratingProps";
+import TicketProps from "@/types/ticketProps";
+import NewTicketProps from "@/types/newTicketProps";
 
 const api = axios.create({
   baseURL: process.env.EXPO_PUBLIC_API_URL
@@ -11,8 +12,14 @@ const fetchClubs = async () => {
   return clubs;
 }
 
-const putRating = async (rating: RatingProps) => {
-  await api.put('/rating', rating);
+const fetchTickets = async () => {
+  const { data: tickets } = await api.get<TicketProps[]>('/tickets');
+  return tickets;
 }
 
-export {fetchClubs, putRating};
+const createTicket = async (newTicket : NewTicketProps) => {
+  const { data: id } = await api.post('/ticket', newTicket);
+  return id;
+}
+
+export {fetchClubs, fetchTickets, createTicket};

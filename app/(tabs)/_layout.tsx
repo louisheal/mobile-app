@@ -43,6 +43,20 @@ const TabLayout = () => {
             headerTintColor: "white",
           }}
         />
+        <Tabs.Screen
+          name="scanner"
+          options={{
+            title: "Scanner",
+            tabBarIcon: ({ color }) => <FontAwesome size={28} name="camera" color={color} />,
+            headerStyle: {
+              backgroundColor: "black",
+            },
+            headerTitleStyle: {
+              fontWeight: 900,
+            },
+            headerTintColor: "white",
+          }}
+        />
       </Tabs>
     </TicketProvider>
   );

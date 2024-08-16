@@ -12,8 +12,8 @@ export const fetchClubs = async () => {
   return clubs;
 }
 
-export const fetchTickets = async () => {
-  const { data: tickets } = await api.get<TicketProps[]>('/tickets');
+export const fetchTickets = async (userId: string) => {
+  const { data: tickets } = await api.get<TicketProps[]>(`/tickets/${userId}`);
   return tickets;
 }
 
@@ -23,6 +23,6 @@ export const createTicket = async (newTicket: NewTicketProps) => {
 }
 
 export const useTicket = async (ticketId: string) => {
-  const { data: used } = await api.put(`/ticket?ticketId=${ticketId}`);
-  return used;
+  const { data: msg } = await api.put(`/ticket?ticketId=${ticketId}`);
+  return msg;
 }

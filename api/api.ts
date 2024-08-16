@@ -23,6 +23,6 @@ export const createTicket = async (newTicket: NewTicketProps) => {
 }
 
 export const useTicket = async (ticketId: string) => {
-  const { data: used } = await api.put(`/ticket?ticketId=${ticketId}`);
-  return used;
+  const { data: msg } = await api.put(`/ticket?ticketId=${ticketId}`);
+  return msg;
 }

@@ -12,8 +12,8 @@ export const fetchClubs = async () => {
   return clubs;
 }
 
-export const fetchTickets = async () => {
-  const { data: tickets } = await api.get<TicketProps[]>('/tickets');
+export const fetchTickets = async (userId: string) => {
+  const { data: tickets } = await api.get<TicketProps[]>(`/tickets/${userId}`);
   return tickets;
 }
 

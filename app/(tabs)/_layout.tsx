@@ -1,5 +1,6 @@
 import { TicketProvider } from '@/contexts/TicketContext';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { Tabs } from "expo-router";
 
 const Options = {
@@ -15,6 +16,20 @@ const TabLayout = () => {
   return (
     <TicketProvider>
       <Tabs screenOptions={Options}>
+        <Tabs.Screen
+          name="friends"
+          options={{
+            title: "Friends",
+            tabBarIcon: ({ color }) => <FontAwesome5 size={28} name="user-friends" color={color} />,
+            headerStyle: {
+              backgroundColor: "black",
+            },
+            headerTitleStyle: {
+              fontWeight: 900,
+            },
+            headerTintColor: "white",
+          }}
+        />
         <Tabs.Screen
           name="index"
           options={{

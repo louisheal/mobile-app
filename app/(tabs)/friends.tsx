@@ -29,7 +29,6 @@ const Friends = () => {
         data={users}
         renderItem={({item}) => <Text style={{color: "white"}}>{item.username}</Text>}
       />
-      <Text style={{color: "white"}}>{text}</Text>
     </View>
   );
 }

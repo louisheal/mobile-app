@@ -2,6 +2,7 @@ import axios from "axios";
 import ClubProps from "@/types/clubProps";
 import TicketProps from "@/types/ticketProps";
 import NewTicketProps from "@/types/newTicketProps";
+import UserProps from "@/types/userProps";
 
 const api = axios.create({
   baseURL: process.env.EXPO_PUBLIC_API_URL
@@ -25,4 +26,9 @@ export const createTicket = async (newTicket: NewTicketProps) => {
 export const useTicket = async (ticketId: string) => {
   const { data: msg } = await api.put(`/ticket?ticketId=${ticketId}`);
   return msg;
+}
+
+export const searchUsers = async (username: string) => {
+  const { data: users } = await api.get<UserProps[]>(`/users/${username}`);
+  return users;
 }

@@ -1,5 +1,5 @@
 import { FlatList } from "react-native";
-import Ticket from "@/components/Ticket";
+import Ticket from "@/components/tickets/Ticket";
 import { useContext } from "react";
 import { TicketContext } from "@/contexts/TicketContext";
 

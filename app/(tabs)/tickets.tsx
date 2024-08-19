@@ -1,4 +1,4 @@
-import TicketList from "@/components/TicketList";
+import TicketList from "@/components/tickets/TicketList";
 import { View, StyleSheet } from "react-native";
 
 const Tickets = () => {

@@ -1,5 +1,5 @@
 import { View, StyleSheet } from "react-native";
-import ClubList from "@/components/ClubList";
+import ClubList from "@/components/clubs/ClubList";
 
 const Index = () => {
   return (

@@ -1,6 +1,6 @@
 import { Text, Image, Dimensions, StyleSheet } from "react-native"
 import ClubProps from "@/types/clubProps";
-import BuyTicketsButton from "./BuyTicketsButton";
+import BuyTicketsButton from "../tickets/BuyTicketsButton";
 
 const imageWidth = Dimensions.get("window").width
 

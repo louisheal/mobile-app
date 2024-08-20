@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FlatList, StyleSheet, TextInput } from "react-native";
+import { FlatList, StyleSheet, TextInput, View } from "react-native";
 import SearchResult from "./SearchResult";
 import useSearchUsers from "@/hooks/useSearchUsers";
 

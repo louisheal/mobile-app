@@ -3,6 +3,7 @@ import ClubProps from "@/types/clubProps";
 import TicketProps from "@/types/ticketProps";
 import NewTicketProps from "@/types/newTicketProps";
 import UserProps from "@/types/userProps";
+import Status from "@/types/status";
 
 const api = axios.create({
   baseURL: process.env.EXPO_PUBLIC_API_URL
@@ -31,4 +32,13 @@ export const useTicket = async (ticketId: string) => {
 export const searchUsers = async (username: string) => {
   const { data: users } = await api.get<UserProps[]>(`/users/${username}`);
   return users;
+}
+
+export const sendFriendRequest = async (sender: string, recipient: string) => {
+  await api.post('/friends', {sender: sender, recipient: recipient});
+}
+
+export const getFriendRequestStatus = async (fstUser: string, sndUser: string) => {
+  const { data: status } = await api.get<Status>(`/friends/${fstUser}/${sndUser}`);
+  return status;
 }

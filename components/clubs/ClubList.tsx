@@ -1,5 +1,5 @@
 import { FlatList } from "react-native";
-import Club from "@/components/Club";
+import Club from "@/components/clubs/Club";
 import useFetchClubs from "@/hooks/useFetchClubs";
 
 const ClubList = () => {

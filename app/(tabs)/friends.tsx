@@ -1,4 +1,4 @@
-import FriendSearch from "@/components/FriendSearch";
+import FriendSearch from "@/components/friends/FriendSearch";
 import { View, StyleSheet } from "react-native";
 
 const Friends = () => {

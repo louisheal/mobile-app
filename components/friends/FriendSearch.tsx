@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FlatList, StyleSheet, TextInput, View } from "react-native";
+import { FlatList, StyleSheet, TextInput } from "react-native";
 import SearchResult from "./SearchResult";
 import useSearchUsers from "@/hooks/useSearchUsers";
 
@@ -29,7 +29,9 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: "white",
     width: "95%",
-    borderRadius: 12,
+    borderRadius: 8,
+    padding: 8,
+    marginBottom: 14,
   },
 });
 

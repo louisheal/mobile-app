@@ -1,34 +1,24 @@
-import { searchUsers } from "@/api/api";
-import UserProps from "@/types/userProps";
 import { useState } from "react";
-import { FlatList, StyleSheet, Text, TextInput } from "react-native";
+import { FlatList, StyleSheet, TextInput } from "react-native";
+import SearchResult from "./SearchResult";
+import useSearchUsers from "@/hooks/useSearchUsers";
 
 const FriendSearch = () => {
 
   const [text, setText] = useState('');
-  const [users, setUsers] = useState<UserProps[]>([]);
-
-  const changeText = async (newText: string) => {
-    setText(newText);
-    if (newText === '') {
-      setUsers([]);
-    } else {
-      const users = await searchUsers(newText);
-      setUsers(users);
-    }
-  }
+  const [users] = useSearchUsers(text);
 
   return (
     <>
       <TextInput
         style={styles.input}
-        onChangeText={changeText}
+        onChangeText={setText}
         value={text}
         placeholder="Search..."
       />
       <FlatList
         data={users}
-        renderItem={({item}) => <Text style={{color: "white"}}>{item.username}</Text>}
+        renderItem={({item}) => <SearchResult user={item}/>}
       />
     </>
   );

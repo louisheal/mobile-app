@@ -32,3 +32,12 @@ export const searchUsers = async (username: string) => {
   const { data: users } = await api.get<UserProps[]>(`/users/${username}`);
   return users;
 }
+
+export const sendFriendRequest = async (sender: string, recipient: string) => {
+  await api.post('/friends', {sender: sender, recipient: recipient});
+}
+
+export const getFriendRequestStatus = async (fstUser: string, sndUser: string) => {
+  const { data: status } = await api.get(`/friends/${fstUser}/${sndUser}`);
+  return status;
+}

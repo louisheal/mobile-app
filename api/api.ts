@@ -15,22 +15,22 @@ export const fetchClubs = async () => {
 }
 
 export const fetchTickets = async (userId: string) => {
-  const { data: tickets } = await api.get<TicketProps[]>(`/tickets/${userId}`);
+  const { data: tickets } = await api.get<TicketProps[]>(`/tickets?userID=${userId}`);
   return tickets;
 }
 
 export const createTicket = async (newTicket: NewTicketProps) => {
-  const { data: id } = await api.post('/ticket', newTicket);
+  const { data: id } = await api.post('/tickets', newTicket);
   return id;
 }
 
 export const useTicket = async (ticketId: string) => {
-  const { data: msg } = await api.put(`/ticket?ticketId=${ticketId}`);
+  const { data: msg } = await api.put(`/tickets?ticketId=${ticketId}`);
   return msg;
 }
 
 export const searchUsers = async (username: string) => {
-  const { data: users } = await api.get<UserProps[]>(`/users/${username}`);
+  const { data: users } = await api.get<UserProps[]>(`/users?username=${username}`);
   return users;
 }
 

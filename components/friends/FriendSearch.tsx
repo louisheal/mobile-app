@@ -19,6 +19,7 @@ const FriendSearch = () => {
       <FlatList
         data={users}
         renderItem={({item}) => <SearchResult user={item}/>}
+        keyboardShouldPersistTaps="always"
       />
     </>
   );

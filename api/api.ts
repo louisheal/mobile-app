@@ -42,3 +42,7 @@ export const getFriendRequestStatus = async (fstUser: string, sndUser: string) =
   const { data: status } = await api.get<Status>(`/friends/${fstUser}/${sndUser}`);
   return status;
 }
+
+export const deleteFriend = async (fstUser: string, sndUser: string) => {
+  await api.delete(`/friends/${fstUser}/${sndUser}`);
+}

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { getFriendRequestStatus, sendFriendRequest } from "@/api/api";
+import { deleteFriend, getFriendRequestStatus, sendFriendRequest } from "@/api/api";
 import { TicketContext } from "@/contexts/TicketContext";
 import Status from "@/types/status";
 
@@ -21,7 +21,12 @@ const useFetchFriendStatus = (sender: string, recipient: string) => {
     loadStatus();
   }
 
-  return { status, sendRequest };
+  const removeFriend = async () => {
+    await deleteFriend(sender, recipient);
+    loadStatus();
+  }
+
+  return { status, sendRequest, removeFriend };
 }
 
 export default useFetchFriendStatus;

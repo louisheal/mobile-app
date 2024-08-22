@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from "react";
 
 const useSearchUsers = (text: string) => {
   const [users, setUsers] = useState<UserProps[]>([]);
-  const { userId } = useContext(TicketContext);
+  const { userID } = useContext(TicketContext);
 
   useEffect(() => {
     const loadUsers = async () => {
@@ -13,13 +13,13 @@ const useSearchUsers = (text: string) => {
         setUsers([]);
       } else {
         const users = (await searchUsers(text))
-          .filter((user) => user.id != userId);
+          .filter((user) => user.id != userID);
         setUsers(users);
       }
     }
 
     loadUsers();
-  }, [text, userId]);
+  }, [text, userID]);
 
   return [users];
 }

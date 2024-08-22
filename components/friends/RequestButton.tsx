@@ -1,23 +1,21 @@
-import { TicketContext } from "@/contexts/TicketContext";
 import useFetchFriendStatus from "@/hooks/useFetchFriendStatus";
 import Status from "@/types/status";
 import UserProps from "@/types/userProps";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { useContext } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 const RequestButton = ({ user }: { user: UserProps }) => {
-
-  const { userId } = useContext(TicketContext);
-  const { status, sendRequest, removeFriend } = useFetchFriendStatus(userId, user.id);
+  const { status, sendRequest, removeFriend } = useFetchFriendStatus(user.id);
 
   const icons = {
     accepted: <FontAwesome5 name="user-check" size={18} color="white" />,
     accept: <MaterialIcons name="person-add-alt-1" size={25} color="black" />,
     pending: <FontAwesome5 name="user-clock" size={18} color="white" />,
     send: <MaterialIcons name="person-add-alt-1" size={25} color="black" />,
+    delete: <MaterialIcons name="delete-forever" size={20} color="white" />,
+    reject: <FontAwesome6 name="user-xmark" size={20} color="white" />,
     none: <></>,
   }
 
@@ -28,9 +26,6 @@ const RequestButton = ({ user }: { user: UserProps }) => {
     send: "Send",
     none: "",
   }
-
-  const deleteIcon = <MaterialIcons name="delete-forever" size={20} color="white" />
-  const rejectIcon = <FontAwesome6 name="user-xmark" size={20} color="white" />
 
   const backgroundColor =
     status === Status.Accepted || status === Status.Pending ? "grey" :
@@ -45,10 +40,7 @@ const RequestButton = ({ user }: { user: UserProps }) => {
       </Pressable>
       {(status === Status.Accepted || status === Status.Accept) &&
         <Pressable style={{...styles.button, backgroundColor: "red"}} onPress={removeFriend}>
-          {status === Status.Accepted
-            ? deleteIcon
-            : rejectIcon
-          }
+          {status === Status.Accepted ? icons.delete : icons.reject}
         </Pressable>
       }
     </View>

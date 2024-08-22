@@ -3,14 +3,14 @@ import { TicketContext } from "@/contexts/TicketContext";
 import { useContext, useState } from "react";
 import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
 
-const BuyTicketsButton = ({ clubId }: { clubId : string }) => {
+const BuyTicketsButton = ({ clubID }: { clubID : string }) => {
 
   const [showModal, setShowModal] = useState(false);
-  const {addTicket, userId} = useContext(TicketContext);
+  const { addTicket, userID } = useContext(TicketContext);
 
   const onSubmit = async () => {
-    const id = await createTicket({"clubId": clubId, "userId": userId});
-    addTicket({"id": id, "clubId": clubId, "userId": userId});
+    const id = await createTicket({"clubID": clubID, "userID": userID});
+    addTicket({"id": id, "clubID": clubID, "userID": userID});
     setShowModal(false);
   }
 

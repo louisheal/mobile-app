@@ -14,8 +14,8 @@ export const fetchClubs = async () => {
   return clubs;
 }
 
-export const fetchTickets = async (userId: string) => {
-  const { data: tickets } = await api.get<TicketProps[]>(`/tickets?userID=${userId}`);
+export const fetchTickets = async (userID: string) => {
+  const { data: tickets } = await api.get<TicketProps[]>(`/tickets?userID=${userID}`);
   return tickets;
 }
 
@@ -45,4 +45,9 @@ export const getFriendRequestStatus = async (fstUser: string, sndUser: string) =
 
 export const deleteFriend = async (fstUser: string, sndUser: string) => {
   await api.delete(`/friends/${fstUser}/${sndUser}`);
+}
+
+export const getFriendRequests = async (userID: string) => {
+  const { data: requests } = await api.get<UserProps[]>(`/friends?userID=${userID}`);
+  return requests;
 }

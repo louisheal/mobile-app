@@ -9,7 +9,7 @@ const Club = ({ club }: { club: ClubProps }) => {
     <View style={styles.container}>
       <View style={styles.infoRow}>
         <Text style={styles.text}>{club.name}</Text>
-        <BuyTicketsButton clubId={club.id} />
+        <BuyTicketsButton clubID={club.id} />
       </View>
       <Image style={styles.image} source={{uri: club.img}} />
     </View>

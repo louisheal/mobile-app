@@ -1,7 +1,7 @@
 interface TicketProps {
   id: string,
-  clubId: string,
-  userId: string,
+  clubID: string,
+  userID: string,
 }
 
 export default TicketProps;

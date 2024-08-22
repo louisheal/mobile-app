@@ -4,14 +4,14 @@ import { View, StyleSheet, Pressable, Text } from "react-native";
 
 const Profile = () => {
 
-  const {setUserId} = useContext(TicketContext);
+  const { setUserID } = useContext(TicketContext);
 
   return (
     <View style={styles.container}>
-      <Pressable style={styles.button} onPress={() => setUserId("000000000000000000000000")}>
+      <Pressable style={styles.button} onPress={() => setUserID("000000000000000000000000")}>
         <Text style={styles.text}>User 1</Text>
       </Pressable>
-      <Pressable style={styles.button} onPress={() => setUserId("000000000000000000000001")}>
+      <Pressable style={styles.button} onPress={() => setUserID("000000000000000000000001")}>
         <Text style={styles.text}>User 2</Text>
       </Pressable>
     </View>

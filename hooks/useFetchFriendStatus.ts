@@ -5,7 +5,6 @@ import { FriendContext } from "@/contexts/FriendContext";
 
 const useFetchFriendStatus = (friendID: string) => {
 
-  // TODO: userID -> UserContext
   const { userID } = useContext(TicketContext);
   const { states, setStates } = useContext(FriendContext);
 

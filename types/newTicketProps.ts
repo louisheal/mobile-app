@@ -1,6 +1,6 @@
 interface NewTicketProps {
-  clubId: string,
-  userId: string,
+  clubID: string,
+  userID: string,
 }
 
 export default NewTicketProps;

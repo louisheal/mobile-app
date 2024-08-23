@@ -4,24 +4,24 @@ import { createContext, useState } from "react"
 
 interface TicketContextType {
   tickets: TicketProps[]
-  userId: string
+  userID: string
   addTicket: (ticket: TicketProps) => void
-  setUserId: (userId: string) => void
+  setUserID: (userID: string) => void
 }
 
 const TicketContext = createContext<TicketContextType>({
   tickets: [],
-  userId: "",
+  userID: "",
   addTicket: () => {},
-  setUserId: () => {},
+  setUserID: () => {},
 });
 
 const TicketProvider = ({ children }: { children: React.ReactNode }) => {
-  const [userId, setUserId] = useState("000000000000000000000000");
-  const {tickets, addTicket} = useFetchTickets(userId);
+  const [userID, setUserID] = useState("000000000000000000000000");
+  const {tickets, addTicket} = useFetchTickets(userID);
   
   return (
-    <TicketContext.Provider value={{tickets, userId, addTicket, setUserId}}>
+    <TicketContext.Provider value={{tickets, userID, addTicket, setUserID}}>
       {children}
     </TicketContext.Provider>
   );

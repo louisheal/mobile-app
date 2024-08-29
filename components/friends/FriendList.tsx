@@ -4,14 +4,14 @@ import { useContext } from "react";
 import { FriendContext } from "@/contexts/FriendContext";
 
 const FriendList = () => {
-  const { friends, onRemove } = useContext(FriendContext);
+  const { friends } = useContext(FriendContext);
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Friends</Text>
       <FlatList
         data={friends}
-        renderItem={({item}) => <Friend friend={item} onRemove={() => onRemove(item.id)} />}
+        renderItem={({item}) => <Friend friend={item} />}
       />
     </View>
   );

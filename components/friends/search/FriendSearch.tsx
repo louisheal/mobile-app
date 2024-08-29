@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { FlatList, StyleSheet, TextInput } from "react-native";
+import { FlatList, StyleSheet, TextInput, View } from "react-native";
+import useSearchUsers from "@/hooks/useSearchFriends";
 import SearchResult from "./SearchResult";
-import useSearchUsers from "@/hooks/useSearchUsers";
 
 const FriendSearch = () => {
-
   const [text, setText] = useState('');
   const [users] = useSearchUsers(text);
 
   return (
-    <>
+    <View style={styles.container}>
       <TextInput
         style={styles.input}
         onChangeText={setText}
@@ -18,14 +17,20 @@ const FriendSearch = () => {
       />
       <FlatList
         data={users}
-        renderItem={({item}) => <SearchResult user={item}/>}
+        renderItem={({item}) => <SearchResult friend={item} />}
         keyboardShouldPersistTaps="always"
       />
-    </>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    width: "100%",
+    flex: 1,
+    gap: 8,
+  },
   input: {
     height: 40,
     backgroundColor: "white",

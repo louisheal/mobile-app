@@ -1,16 +1,17 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import FriendRequest from "./FriendRequest";
-import useFriendRequests from "@/hooks/useFetchRequests";
+import { useContext } from "react";
+import { FriendContext } from "@/contexts/FriendContext";
 
 const RequestList = () => {
-  const { requests, onAction } = useFriendRequests();
+  const { requests } = useContext(FriendContext);
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Friend Requests</Text>
       <FlatList
         data={requests}
-        renderItem={({item}) => <FriendRequest friend={item} onAction={() => onAction(item.id)} />}
+        renderItem={({item}) => <FriendRequest friend={item} />}
       />
     </View>
   );
@@ -18,8 +19,8 @@ const RequestList = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
+    flex: 1,
     gap: 8,
   },
   text: {

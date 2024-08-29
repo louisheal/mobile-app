@@ -1,5 +1,6 @@
-import FriendSearch from "@/components/friends/FriendSearch";
-import RequestList from "@/components/friends/RequestList";
+import FriendList from "@/components/friends/FriendList";
+import RequestList from "@/components/friends/requests/RequestList";
+import FriendSearch from "@/components/friends/search/FriendSearch";
 import { FriendProvider } from "@/contexts/FriendContext";
 import { View, StyleSheet } from "react-native";
 
@@ -10,6 +11,8 @@ const Friends = () => {
         <FriendSearch />
         <View style={styles.divider} />
         <RequestList />
+        <View style={styles.divider} />
+        <FriendList />
       </View>
     </FriendProvider>
   );
@@ -17,10 +20,10 @@ const Friends = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    backgroundColor: "black",
     justifyContent: "space-between",
+    backgroundColor: "black",
+    alignItems: "center",
+    flex: 1,
     gap: 8,
   },
   divider: {

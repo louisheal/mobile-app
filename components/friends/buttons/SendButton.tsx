@@ -1,17 +1,13 @@
-import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-const FriendRequestButton = ({ onAccept, onReject }: { onAccept: () => void, onReject: () => void }) => {
+const SendButton = ({ onSend }: { onSend: () => void }) => {
   return (
     <View style={styles.container}>
-      <Pressable style={{...styles.button, backgroundColor: "white", flex: 1}} onPress={onAccept}>
-        <Text style={styles.text}>Accept</Text>
+      <Pressable style={{...styles.button, backgroundColor: "white", flex: 1}} onPress={onSend}>
+        <Text style={styles.text}>Send</Text>
         <MaterialIcons name="person-add-alt-1" size={25} color="black" />
       </Pressable>
-        <Pressable style={{...styles.button, backgroundColor: "red"}} onPress={onReject}>
-          <FontAwesome6 name="user-xmark" size={20} color="white" />
-        </Pressable>
     </View>
   );
 }
@@ -32,8 +28,7 @@ const styles = StyleSheet.create({
   },
   text :{
     fontSize: 20,
-    color: "black",
   },
 });
 
-export default FriendRequestButton;
+export default SendButton;

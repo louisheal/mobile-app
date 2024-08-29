@@ -1,12 +1,16 @@
 import UserProps from "@/types/userProps";
 import { StyleSheet, Text, View } from "react-native";
-import RequestButton from "./RequestButton";
+import AcceptedButton from "./buttons/AcceptedButton";
+import { useContext } from "react";
+import { FriendContext } from "@/contexts/FriendContext";
 
-const SearchResult = ({ user }: {user: UserProps}) => {
+const Friend = ({ friend }: { friend: UserProps }) => {
+  const { onRemove } = useContext(FriendContext);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{user.username}</Text>
-      <RequestButton user={user} />
+      <Text style={styles.text}>{friend.username}</Text>
+      <AcceptedButton onRemove={() => onRemove(friend.id)} />
     </View>
   );
 }
@@ -25,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SearchResult;
+export default Friend;

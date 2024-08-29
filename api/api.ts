@@ -48,6 +48,11 @@ export const deleteFriend = async (fstUser: string, sndUser: string) => {
 }
 
 export const getFriendRequests = async (userID: string) => {
-  const { data: requests } = await api.get<UserProps[]>(`/friends?userID=${userID}`);
+  const { data: requests } = await api.get<UserProps[]>(`/friends/requests?userID=${userID}`);
   return requests;
+}
+
+export const getFriends = async (userID: string) => {
+  const { data: friends } = await api.get<UserProps[]>(`/friends?userID=${userID}`);
+  return friends;
 }

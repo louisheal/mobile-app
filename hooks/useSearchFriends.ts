@@ -3,7 +3,7 @@ import { TicketContext } from "@/contexts/TicketContext";
 import UserProps from "@/types/userProps";
 import { useContext, useEffect, useState } from "react";
 
-const useSearchUsers = (text: string) => {
+const useSearchFriends = (text: string) => {
   const [users, setUsers] = useState<UserProps[]>([]);
   const { userID } = useContext(TicketContext);
 
@@ -24,4 +24,4 @@ const useSearchUsers = (text: string) => {
   return [users];
 }
 
-export default useSearchUsers;
+export default useSearchFriends;

@@ -1,13 +1,12 @@
-import useFetchFriendStatus from "@/hooks/useFetchFriendStatus";
+import useFetchFriendStatus from "@/hooks/useFriendStatus";
 import Status from "@/types/status";
-import UserProps from "@/types/userProps";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-const RequestButton = ({ user }: { user: UserProps }) => {
-  const { status, sendRequest, removeFriend } = useFetchFriendStatus(user.id);
+const RequestButton = ({ friendID }: { friendID: string }) => {
+  const { status, sendRequest, removeFriend } = useFetchFriendStatus(friendID);
 
   const icons = {
     accepted: <FontAwesome5 name="user-check" size={18} color="white" />,

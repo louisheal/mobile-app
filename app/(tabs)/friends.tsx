@@ -1,3 +1,4 @@
+import FriendList from "@/components/friends/FriendList";
 import FriendSearch from "@/components/friends/FriendSearch";
 import RequestList from "@/components/friends/RequestList";
 import { FriendProvider } from "@/contexts/FriendContext";
@@ -10,6 +11,8 @@ const Friends = () => {
         <FriendSearch />
         <View style={styles.divider} />
         <RequestList />
+        <View style={styles.divider} />
+        <FriendList />
       </View>
     </FriendProvider>
   );

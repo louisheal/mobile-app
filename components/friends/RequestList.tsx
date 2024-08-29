@@ -1,9 +1,9 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import FriendRequest from "./FriendRequest";
-import useFriendRequests from "@/hooks/useFetchRequests";
+import useFetchRequests from "@/hooks/useFetchRequests";
 
 const RequestList = () => {
-  const { requests, onAction } = useFriendRequests();
+  const { requests, onAction } = useFetchRequests();
 
   return (
     <View style={styles.container}>

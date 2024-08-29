@@ -1,16 +1,16 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { deleteFriend, getFriendRequestStatus, sendFriendRequest } from "@/api/api";
 import { TicketContext } from "@/contexts/TicketContext";
 import { FriendContext } from "@/contexts/FriendContext";
 
-const useFetchFriendStatus = (friendID: string) => {
+const useFriendStatus = (friendID: string) => {
 
   const { userID } = useContext(TicketContext);
-  const { states, setStates } = useContext(FriendContext);
+  const { states, updateState } = useContext(FriendContext);
 
   const loadStatus = async () => {
     const status = await getFriendRequestStatus(userID, friendID);
-    setStates(prev => ({...prev, [friendID]: status}));
+    updateState(friendID, status);
   };
 
   useEffect(() => {
@@ -34,4 +34,4 @@ const useFetchFriendStatus = (friendID: string) => {
   };
 }
 
-export default useFetchFriendStatus;
+export default useFriendStatus;

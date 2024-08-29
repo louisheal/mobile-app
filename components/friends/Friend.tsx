@@ -1,18 +1,12 @@
 import UserProps from "@/types/userProps";
 import { StyleSheet, Text, View } from "react-native";
-import FriendRequestButton from "./FriendRequestButton";
+import RemoveFriendButton from "./RemoveFriendButton";
 import useFriendStatus from "@/hooks/useFriendStatus";
 
-const FriendRequest = ({ friend, onAction }: { friend: UserProps, onAction: () => void }) => {
+const Friend = ({ friend, onAction }: { friend: UserProps, onAction: () => void }) => {
+  const { removeFriend } = useFriendStatus(friend.id);
 
-  const { sendRequest, removeFriend } = useFriendStatus(friend.id);
-
-  const onAccept = () => {
-    sendRequest();
-    onAction();
-  }
-
-  const onReject = () => {
+  const onRemove = () => {
     removeFriend();
     onAction();
   }
@@ -20,7 +14,7 @@ const FriendRequest = ({ friend, onAction }: { friend: UserProps, onAction: () =
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{friend.username}</Text>
-      <FriendRequestButton onAccept={onAccept} onReject={onReject} />
+      <RemoveFriendButton onRemove={onRemove} />
     </View>
   );
 }
@@ -39,4 +33,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FriendRequest;
+export default Friend;

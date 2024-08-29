@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FlatList, StyleSheet, TextInput, View } from "react-native";
-import SearchResult from "./SearchResult";
 import useSearchUsers from "@/hooks/useSearchFriends";
+import SearchResult from "./SearchResult";
 
 const FriendSearch = () => {
 

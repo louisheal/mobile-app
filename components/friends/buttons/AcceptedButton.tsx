@@ -2,12 +2,11 @@ import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-const RemoveFriendButton = ({ onRemove }: { onRemove: () => void }) => {
-
+const AcceptedButton = ({ onRemove }: { onRemove: () => void }) => {
   return (
     <View style={styles.container}>
-      <View style={{...styles.button, backgroundColor: "grey", flex: 1}}>
-        <Text style={{...styles.text, color: "white"}}>Accepted</Text>
+      <View style={styles.button}>
+        <Text style={styles.text}>Accepted</Text>
         <FontAwesome5 name="user-check" size={18} color="white" />
       </View>
       <Pressable style={{...styles.button, backgroundColor: "red"}} onPress={onRemove}>
@@ -33,7 +32,8 @@ const styles = StyleSheet.create({
   },
   text :{
     fontSize: 20,
+    color: "white",
   },
 });
 
-export default RemoveFriendButton;
+export default AcceptedButton;

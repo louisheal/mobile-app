@@ -1,6 +1,6 @@
 import FriendList from "@/components/friends/FriendList";
-import FriendSearch from "@/components/friends/FriendSearch";
-import RequestList from "@/components/friends/RequestList";
+import RequestList from "@/components/friends/requests/RequestList";
+import FriendSearch from "@/components/friends/search/FriendSearch";
 import { FriendProvider } from "@/contexts/FriendContext";
 import { View, StyleSheet } from "react-native";
 

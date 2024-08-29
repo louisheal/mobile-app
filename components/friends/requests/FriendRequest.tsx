@@ -1,7 +1,7 @@
 import UserProps from "@/types/userProps";
 import { StyleSheet, Text, View } from "react-native";
-import FriendRequestButton from "./FriendRequestButton";
 import useFriendStatus from "@/hooks/useFriendStatus";
+import AcceptButton from "@/components/friends/buttons/AcceptButton";
 
 const FriendRequest = ({ friend, onAction }: { friend: UserProps, onAction: () => void }) => {
 
@@ -20,7 +20,7 @@ const FriendRequest = ({ friend, onAction }: { friend: UserProps, onAction: () =
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{friend.username}</Text>
-      <FriendRequestButton onAccept={onAccept} onReject={onReject} />
+      <AcceptButton onAccept={onAccept} onReject={onReject} />
     </View>
   );
 }

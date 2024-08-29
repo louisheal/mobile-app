@@ -4,7 +4,6 @@ import useSearchUsers from "@/hooks/useSearchFriends";
 import SearchResult from "./SearchResult";
 
 const FriendSearch = () => {
-
   const [text, setText] = useState('');
   const [users] = useSearchUsers(text);
 
@@ -18,7 +17,7 @@ const FriendSearch = () => {
       />
       <FlatList
         data={users}
-        renderItem={({item}) => <SearchResult user={item}/>}
+        renderItem={({item}) => <SearchResult friend={item} />}
         keyboardShouldPersistTaps="always"
       />
     </View>

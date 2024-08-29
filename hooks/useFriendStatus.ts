@@ -1,37 +1,22 @@
 import { useContext, useEffect } from "react";
-import { deleteFriend, getFriendRequestStatus, sendFriendRequest } from "@/api/api";
+import { getFriendRequestStatus } from "@/api/api";
 import { TicketContext } from "@/contexts/TicketContext";
 import { FriendContext } from "@/contexts/FriendContext";
 
 const useFriendStatus = (friendID: string) => {
-
   const { userID } = useContext(TicketContext);
-  const { states, updateState } = useContext(FriendContext);
-
-  const loadStatus = async () => {
-    const status = await getFriendRequestStatus(userID, friendID);
-    updateState(friendID, status);
-  };
+  const { states, setState } = useContext(FriendContext);
 
   useEffect(() => {
+    const loadStatus = async () => {
+      const status = await getFriendRequestStatus(userID, friendID);
+      setState(friendID, status);
+    };
+
     loadStatus();
   }, [userID]);
 
-  const sendRequest = async () => {
-    await sendFriendRequest(userID, friendID);
-    loadStatus();
-  }
-
-  const removeFriend = async () => {
-    await deleteFriend(userID, friendID);
-    loadStatus();
-  }
-
-  return {
-    status: states[friendID],
-    sendRequest,
-    removeFriend
-  };
+  return { status: states[friendID] };
 }
 
 export default useFriendStatus;

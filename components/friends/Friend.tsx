@@ -1,16 +1,8 @@
 import UserProps from "@/types/userProps";
 import { StyleSheet, Text, View } from "react-native";
-import useFriendStatus from "@/hooks/useFriendStatus";
 import AcceptedButton from "./buttons/AcceptedButton";
 
-const Friend = ({ friend, onAction }: { friend: UserProps, onAction: () => void }) => {
-  const { removeFriend } = useFriendStatus(friend.id);
-
-  const onRemove = () => {
-    removeFriend();
-    onAction();
-  }
-
+const Friend = ({ friend, onRemove }: { friend: UserProps, onRemove: () => void }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{friend.username}</Text>

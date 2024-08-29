@@ -1,22 +1,8 @@
 import UserProps from "@/types/userProps";
 import { StyleSheet, Text, View } from "react-native";
-import useFriendStatus from "@/hooks/useFriendStatus";
 import AcceptButton from "@/components/friends/buttons/AcceptButton";
 
-const FriendRequest = ({ friend, onAction }: { friend: UserProps, onAction: () => void }) => {
-
-  const { sendRequest, removeFriend } = useFriendStatus(friend.id);
-
-  const onAccept = () => {
-    sendRequest();
-    onAction();
-  }
-
-  const onReject = () => {
-    removeFriend();
-    onAction();
-  }
-
+const FriendRequest = ({ friend, onAccept, onReject }: { friend: UserProps, onAccept: () => void, onReject: () => void }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{friend.username}</Text>

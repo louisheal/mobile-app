@@ -1,22 +1,26 @@
 import UserProps from "@/types/userProps";
 import { StyleSheet, Text, View } from "react-native";
-import useFriendStatus from "@/hooks/useFriendStatus";
 import Status from "@/types/status";
 import AcceptButton from "../buttons/AcceptButton";
 import AcceptedButton from "../buttons/AcceptedButton";
 import PendingButton from "../buttons/PendingButton";
 import SendButton from "../buttons/SendButton";
+import { useContext } from "react";
+import { FriendContext } from "@/contexts/FriendContext";
+import useFriendStatus from "@/hooks/useFriendStatus";
 
-const SearchResult = ({ user }: { user: UserProps }) => {
-  const { status, sendRequest, removeFriend } = useFriendStatus(user.id);
+const SearchResult = ({ friend }: { friend: UserProps }) => {
+
+  const { status } = useFriendStatus(friend.id);
+  const { onAccept, onReject, onSend, onRemove } = useContext(FriendContext);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{user.username}</Text>
-      {status === Status.Accept && <AcceptButton onAccept={sendRequest} onReject={removeFriend} />}
-      {status === Status.Accepted && <AcceptedButton onRemove={removeFriend} />}
+      <Text style={styles.text}>{friend.username}</Text>
+      {status === Status.Accept && <AcceptButton onAccept={() => onAccept(friend.id)} onReject={() => onReject(friend.id)} />}
+      {status === Status.Accepted && <AcceptedButton onRemove={() => onRemove(friend.id)} />}
       {status === Status.Pending && <PendingButton />}
-      {status === Status.Send && <SendButton onSend={sendRequest} />}
+      {status === Status.Send && <SendButton onSend={() => onSend(friend.id)} />}
     </View>
   );
 }
@@ -27,7 +31,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "center",
     flexDirection: "row",
-    width: "95%",
+    // width: "100%",
   },
   text: {
     color: "white",

@@ -20,10 +20,10 @@ const Friends = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    backgroundColor: "black",
     justifyContent: "space-between",
+    backgroundColor: "black",
+    alignItems: "center",
+    flex: 1,
     gap: 8,
   },
   divider: {

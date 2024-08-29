@@ -28,10 +28,10 @@ const SearchResult = ({ friend }: { friend: UserProps }) => {
 const styles = StyleSheet.create({
   container: {
     justifyContent: "space-between",
-    alignItems: "center",
     alignSelf: "center",
+    alignItems: "center",
     flexDirection: "row",
-    // width: "100%",
+    width: "95%",
   },
   text: {
     color: "white",

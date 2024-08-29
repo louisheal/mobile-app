@@ -26,10 +26,10 @@ const FriendSearch = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
-    gap: 8,
     width: "100%",
+    flex: 1,
+    gap: 8,
   },
   input: {
     height: 40,

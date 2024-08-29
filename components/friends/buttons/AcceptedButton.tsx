@@ -5,7 +5,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 const AcceptedButton = ({ onRemove }: { onRemove: () => void }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.button}>
+      <View style={{...styles.button, backgroundColor: "grey"}}>
         <Text style={styles.text}>Accepted</Text>
         <FontAwesome5 name="user-check" size={18} color="white" />
       </View>
